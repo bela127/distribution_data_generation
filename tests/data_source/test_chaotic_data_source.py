@@ -7,6 +7,6 @@ class TestChaoticDataSource(TestCase):
     def test_query(self):
         s = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0])
         source = ChaoticDataSource()
-        a, actual = source.query(s)
+        a, actual = source.query([s])[0]
 
         print(actual)

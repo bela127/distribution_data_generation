@@ -7,5 +7,5 @@ class PeriodicDataSource(DataSource):
         super().__init__()
 
     @tf.function
-    def __query(self, actual_queries: tf.Tensor):
+    def _query(self, actual_queries: tf.Tensor):
         return actual_queries, tf.math.sin(actual_queries)

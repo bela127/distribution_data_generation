@@ -7,7 +7,7 @@ class TestGraphDataSource(TestCase):
     def test_query(self):
         x = tf.constant([1, 2, 3, 4, 5, 6, 7])
         default_graph = GraphDataSource()
-        a, result = default_graph.query(x)
+        a, result = default_graph.query([x])[0]
 
         tf.assert_equal(x, result)
 
@@ -22,7 +22,7 @@ class TestGraphDataSource(TestCase):
 
         add_graph = GraphDataSource(func)
 
-        a, result = add_graph.query(x)
+        a, result = add_graph.query([x])[0]
 
         expected = tf.constant([1, 3, 5, 7, 9, 11, 13])
 

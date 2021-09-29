@@ -7,8 +7,9 @@ class TestLinearDataSource(TestCase):
     def test_query(self):
         c = tf.constant([243, 324, 234, 324, 234, 423, 243, 234, 23, 4, 324, 324, 234, 3, 423, 324, 32, 4324, 234, 324])
         expected = c
-        a, source = LinearDataSource()
+        source = LinearDataSource()
 
-        tf.assert_equal(c, source.query(c))
+        x, actual = source.query([c])[0]
+        tf.assert_equal(expected, actual)
 
         assert True

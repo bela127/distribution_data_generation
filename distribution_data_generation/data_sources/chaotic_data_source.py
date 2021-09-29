@@ -7,7 +7,7 @@ class ChaoticDataSource(DataSource):
         super().__init__()
 
     @tf.function
-    def __query(self, actual_query: tf.Tensor):
+    def _query(self, actual_query: tf.Tensor):
 
         a = 1.3
         one = 1
