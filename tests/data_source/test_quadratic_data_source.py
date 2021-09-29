@@ -8,7 +8,7 @@ class Test(TestCase):
         s = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0])
         quadratic_data_source = QuadraticDataSource()
         expected = s * s
-        actual = quadratic_data_source.query(s)
+        a, actual = quadratic_data_source.query(s)
 
         tf.debugging.assert_equal(
             expected,  actual

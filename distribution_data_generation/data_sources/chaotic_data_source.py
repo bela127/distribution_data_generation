@@ -7,7 +7,7 @@ class ChaoticDataSource(DataSource):
         super().__init__()
 
     @tf.function
-    def query(self, actual_query: tf.Tensor):
+    def __query(self, actual_query: tf.Tensor):
 
         a = 1.3
         one = 1
@@ -22,4 +22,4 @@ class ChaoticDataSource(DataSource):
             out_x.append(one - a * last_x + b * last_last_x)
             last_last_x = last_x
             last_x = i
-        return tf.stack(out_x)
+        return actual_query, tf.stack(out_x)

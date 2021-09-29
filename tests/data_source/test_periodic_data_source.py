@@ -9,7 +9,7 @@ class TestQuadraticDataSource(TestCase):
                          423.0, 324.0, 32.0, 4324.0, 234.0, 324.0])
         expected = tf.math.sin(c)
         source = PeriodicDataSource()
-        actual = source.query(c)
+        a, actual = source.query(c)
 
         tf.assert_equal(expected, actual)
 

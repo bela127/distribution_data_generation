@@ -8,5 +8,5 @@ class QuadraticDataSource(DataSource):
         super().__init__()
 
     @tf.function
-    def query(self, actual_query: tf.Tensor):
-        return actual_query * actual_query
+    def __query(self, actual_query: tf.Tensor):
+        return actual_query, actual_query * actual_query

@@ -11,5 +11,5 @@ class GraphDataSource(DataSource):
         super().__init__()
         self.function = tf.function(graph)
 
-    def query(self, actual_queries: tf.Tensor):
-        return self.function(actual_queries)
+    def __query(self, actual_queries: tf.Tensor):
+        return actual_queries, self.function(actual_queries)

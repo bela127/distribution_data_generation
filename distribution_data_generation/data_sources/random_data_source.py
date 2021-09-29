@@ -8,5 +8,5 @@ class RandomDataSource(DataSource):
         super().__init__()
 
     @tf.function
-    def query(self, x: tf.Tensor):
-        return tf.random.uniform(x.shape)
+    def __query(self, x: tf.Tensor):
+        return x, tf.random.uniform(x.shape)
