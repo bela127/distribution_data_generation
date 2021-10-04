@@ -1,6 +1,7 @@
 from unittest import TestCase
 import tensorflow as tf
 from distribution_data_generation.data_sources.data_set_data_source import DataSetDataSource
+from numpy import array
 
 
 class TestDataSetDataSource(TestCase):
@@ -11,8 +12,8 @@ class TestDataSetDataSource(TestCase):
 
         b = tf.constant([4.0, 4.0, 2.0, 2.0, 443.0, 3.0, 4.0, 344.0, 4.0])  # b is but a different object
 
-        keys = [a, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)]
-        values = [value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)]
+        keys = array([a, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
+        values = array([value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
 
         source = DataSetDataSource(keys, values)
 
