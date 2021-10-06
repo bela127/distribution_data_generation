@@ -1,7 +1,5 @@
 from typing import Protocol, List, Tuple
 import tensorflow as tf
-from os import environ
-import multiprocessing.dummy as mp
 
 
 class DataSource(Protocol):
