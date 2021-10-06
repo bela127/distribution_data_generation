@@ -2,7 +2,7 @@
 name = "absl-py"
 version = "0.14.1"
 description = "Abseil Python Common Libraries, see https://github.com/abseil/abseil-py."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -13,7 +13,7 @@ six = "*"
 name = "astunparse"
 version = "1.6.3"
 description = "An AST unparser for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -73,7 +73,7 @@ uvloop = ["uvloop (>=0.15.2)"]
 name = "cachetools"
 version = "4.2.4"
 description = "Extensible memoizing collections and decorators"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "~=3.5"
 
@@ -81,7 +81,7 @@ python-versions = "~=3.5"
 name = "certifi"
 version = "2021.5.30"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -89,7 +89,7 @@ python-versions = "*"
 name = "charset-normalizer"
 version = "2.0.6"
 description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5.0"
 
@@ -119,7 +119,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "gast"
 version = "0.3.3"
 description = "Python AST that abstracts the underlying Python version"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -127,7 +127,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "google-auth"
 version = "1.35.0"
 description = "Google Authentication Library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*"
 
@@ -146,7 +146,7 @@ reauth = ["pyu2f (>=0.1.5)"]
 name = "google-auth-oauthlib"
 version = "0.4.6"
 description = "Google Authentication Library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -161,7 +161,7 @@ tool = ["click (>=6.0.0)"]
 name = "google-pasta"
 version = "0.2.0"
 description = "pasta is an AST-based Python refactoring library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -172,7 +172,7 @@ six = "*"
 name = "grpcio"
 version = "1.41.0"
 description = "HTTP/2-based RPC framework"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -186,7 +186,7 @@ protobuf = ["grpcio-tools (>=1.41.0)"]
 name = "h5py"
 version = "2.10.0"
 description = "Read and write HDF5 files from Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -198,7 +198,7 @@ six = "*"
 name = "idna"
 version = "3.2"
 description = "Internationalized Domain Names in Applications (IDNA)"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -206,7 +206,7 @@ python-versions = ">=3.5"
 name = "keras-preprocessing"
 version = "1.1.2"
 description = "Easy data preprocessing and data augmentation for deep learning models"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -223,7 +223,7 @@ tests = ["pandas", "pillow", "tensorflow", "keras", "pytest", "pytest-xdist", "p
 name = "markdown"
 version = "3.3.4"
 description = "Python implementation of Markdown."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -267,7 +267,7 @@ python-versions = "*"
 name = "numpy"
 version = "1.21.2"
 description = "NumPy is the fundamental package for array computing with Python."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7,<3.11"
 
@@ -275,7 +275,7 @@ python-versions = ">=3.7,<3.11"
 name = "oauthlib"
 version = "3.1.1"
 description = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -288,7 +288,7 @@ signedtoken = ["cryptography (>=3.0.0,<4)", "pyjwt (>=2.0.0,<3)"]
 name = "opt-einsum"
 version = "3.3.0"
 description = "Optimizing numpys einsum function"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -345,7 +345,7 @@ dev = ["pre-commit", "tox"]
 name = "protobuf"
 version = "3.18.1"
 description = "Protocol Buffers"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -361,7 +361,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "pyasn1"
 version = "0.4.8"
 description = "ASN.1 types and codecs"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -369,7 +369,7 @@ python-versions = "*"
 name = "pyasn1-modules"
 version = "0.2.8"
 description = "A collection of ASN.1-based protocols modules."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -418,7 +418,7 @@ python-versions = "*"
 name = "requests"
 version = "2.26.0"
 description = "Python HTTP for Humans."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
@@ -436,7 +436,7 @@ use_chardet_on_py3 = ["chardet (>=3.0.2,<5)"]
 name = "requests-oauthlib"
 version = "1.3.0"
 description = "OAuthlib authentication support for Requests."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -451,7 +451,7 @@ rsa = ["oauthlib[signedtoken] (>=3.0.0)"]
 name = "rsa"
 version = "4.7.2"
 description = "Pure-Python RSA implementation"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5, <4"
 
@@ -462,7 +462,7 @@ pyasn1 = ">=0.1.3"
 name = "scipy"
 version = "1.4.1"
 description = "SciPy: Scientific Library for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.5"
 
@@ -473,7 +473,7 @@ numpy = ">=1.13.3"
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -481,7 +481,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "tensorboard"
 version = "2.2.2"
 description = "TensorBoard lets you watch Tensors Flow"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">= 2.7, != 3.0.*, != 3.1.*"
 
@@ -502,7 +502,7 @@ werkzeug = ">=0.11.15"
 name = "tensorboard-plugin-wit"
 version = "1.8.0"
 description = "What-If Tool TensorBoard plugin."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -510,7 +510,7 @@ python-versions = "*"
 name = "tensorflow"
 version = "2.2.0"
 description = "TensorFlow is an open source machine learning framework for everyone."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -536,7 +536,7 @@ wrapt = ">=1.11.1"
 name = "tensorflow-estimator"
 version = "2.2.0"
 description = "TensorFlow Estimator."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -544,7 +544,7 @@ python-versions = "*"
 name = "termcolor"
 version = "1.1.0"
 description = "ANSII Color formatting for output in terminal."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -576,7 +576,7 @@ python-versions = "*"
 name = "urllib3"
 version = "1.26.7"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
 
@@ -597,7 +597,7 @@ python-versions = "*"
 name = "werkzeug"
 version = "2.0.2"
 description = "The comprehensive WSGI web application library."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -608,14 +608,14 @@ watchdog = ["watchdog"]
 name = "wrapt"
 version = "1.13.1"
 description = "Module for decorators, wrappers and monkey patching."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "e7ec98463e20147d86ce8c277d26ae7cbd3e47fba146399d46faa23f97797082"
+content-hash = "e12d83bd6361308dda78806fb612c880ed28a210f9ec5709a51b01e8eca4dc69"
 
 [metadata.files]
 absl-py = [

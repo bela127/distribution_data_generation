@@ -6,14 +6,14 @@ authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
-tensorflow = "2.2.0"
 
 
 [tool.poetry.dev-dependencies]
-numpy = "^>=1.19.2,<1.20.0)"
+numpy = "^1.21.2"
 pytest = "^5.2"
 black = "^21.6b0"
 mypy = "^0.910"
+tensorflow = "^2.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
