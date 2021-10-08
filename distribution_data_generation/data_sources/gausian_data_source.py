@@ -18,7 +18,10 @@ class GaussianDataSource(DataSource):
     implementation of gaussian random function generation from
      https://peterroelants.github.io/posts/gaussian-process-tutorial/
 
-     no further comments
+     This is a simple class that creates a random function with the use of Gaussian processes to sample a function
+     with mean 0 without Data. This creates a function from R^n -> R^n where each dimension is independent of the other
+
+     This is done because it is easy to visualize since it works on each dimension independently
     """
     # np array of np arrays with values at the given sample points
     functions = None
