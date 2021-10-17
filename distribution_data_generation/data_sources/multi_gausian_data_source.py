@@ -20,10 +20,12 @@ class MultiGausianDataSource(DataSource):
 
     # @tf.function
     # there is an issue with using numpy methods in tf graphs. gpr uses numpy methods. looking into solutions for this
-    def query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
+    def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
+        # TODO: in order to learn properly here, every point has to be trained every time. Overriding query directly \
+        #  would avoid this
         y = self.gpr.sample_y([actual_queries], random_state=random.randint(10, 10000000))
         y = tf.constant([a[0] for a in y[0]])  # strange dimension issues
-        self.queries = self.queries.append(actual_queries)
+        self.queries.append(actual_queries)
         self.values.append(y)
         self.gpr.fit(self.queries, self.values)
 
