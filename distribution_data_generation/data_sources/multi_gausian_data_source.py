@@ -15,11 +15,16 @@ class MultiGausianDataSource(DataSource):
                               maxval=3.0)  # with all default values, 3 is about the highest sample you can get
         self.gpr = GaussianProcessRegressor(kernel=RationalQuadratic())
         self.gpr.fit([x], [y])
+        self.queries = []
+        self.values = []
 
     # @tf.function
     # there is an issue with using numpy methods in tf graphs. gpr uses numpy methods. looking into solutions for this
-    def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
+    def query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         y = self.gpr.sample_y([actual_queries], random_state=random.randint(10, 10000000))
         y = tf.constant([a[0] for a in y[0]])  # strange dimension issues
-        self.gpr.fit([actual_queries], [y])
+        self.queries = self.queries.append(actual_queries)
+        self.values.append(y)
+        self.gpr.fit(self.queries, self.values)
+
         return actual_queries, y
