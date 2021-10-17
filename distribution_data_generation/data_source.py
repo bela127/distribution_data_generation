@@ -9,13 +9,9 @@ class DataSource(Protocol):
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         pass
 
+    # TODO for convenience, change this from list[tuple]  to tuple[list]
     def query(self, actual_queries: List[tf.Tensor]) -> List[Tuple[tf.Tensor, tf.Tensor]]:
         return [self._query(x) for x in actual_queries]
-    # available_threads = 8
-    #    try:
-    #         available_threads = int(environ['query_threads'])
-    #      except (ValueError, KeyError) as e:
-    #           pass
 
     def possible_queries(self):
         return None
