@@ -18,6 +18,6 @@ class TestDataSetDataSource(TestCase):
         source = DataSetDataSource(keys, values)
 
         expected = value
-        x, actual = source.query([b])[0]
+        x, actual = source.query([b])
 
-        tf.assert_equal(expected, actual)
+        tf.assert_equal(expected, actual[0])

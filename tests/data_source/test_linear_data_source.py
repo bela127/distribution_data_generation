@@ -9,7 +9,7 @@ class TestLinearDataSource(TestCase):
         expected = c
         source = LinearDataSource()
 
-        x, actual = source.query([c])[0]
-        tf.assert_equal(expected, actual)
+        x, actual = source.query([c])
+        tf.assert_equal(expected, actual[0])
 
         assert True

@@ -9,7 +9,7 @@ class TestRandomDataSource(TestCase):
 
         source = RandomDataSource()
 
-        a, b = source.query([c])[0]
-        print(b)
+        a, b = source.query([c])
+        print(b[0])
 
         assert True
