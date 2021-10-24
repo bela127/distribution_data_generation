@@ -1,11 +1,9 @@
-from typing import Protocol, List, Tuple
+from typing import List, Tuple
 import tensorflow as tf
+from active_learning_ts.data_retrievement.data_source import DataSource as activeLearningDataSource
 
 
-class DataSource(Protocol):
-    def __init__(self):
-        pass
-
+class DataSource(activeLearningDataSource):
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         pass
 
