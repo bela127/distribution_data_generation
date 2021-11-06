@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.star_data_source import StarDataS
 
 
 def test_query():
-    cds = StarDataSource()
+    cds = StarDataSource(4)
 
     print(cds.query([tf.constant([0.9, 0, .5, 0.7])]))

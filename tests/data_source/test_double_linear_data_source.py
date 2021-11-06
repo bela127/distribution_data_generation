@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.double_linear_data_source import 
 
 
 def test_query():
-    cds = DoubleLinearDataSource(2)
+    cds = DoubleLinearDataSource(4)
 
     print(cds.query([tf.constant([-0.9, 0, -0.5, 0.7])]))

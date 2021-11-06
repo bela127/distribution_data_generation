@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.linear_then_noise_data_source imp
 
 
 def test_query():
-    cds = LinearThenNoiseDataSource(dependency_dimension=4)
+    cds = LinearThenNoiseDataSource(4, dependency_dimension=4)
 
     print(cds.query([tf.constant([-0.9, 0, -0.5, 0.7])]))

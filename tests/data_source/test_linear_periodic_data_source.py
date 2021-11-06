@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.linear_periodic_data_source impor
 
 
 def test_query():
-    cds = LinearPeriodicDataSource(0.9)
+    cds = LinearPeriodicDataSource(4, 0.9)
 
     print(cds.query([tf.constant([0.9, 0, -0.5, 0.7])]))

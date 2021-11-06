@@ -1,6 +1,7 @@
 from typing import List, Tuple
 import tensorflow as tf
 from active_learning_ts.data_retrievement.data_source import DataSource as activeLearningDataSource
+from active_learning_ts.pool import Pool
 
 
 class DataSource(activeLearningDataSource):
@@ -16,5 +17,5 @@ class DataSource(activeLearningDataSource):
             results.append(r)
         return queries, results
 
-    def possible_queries(self):
-        return None
+    def possible_queries(self) -> Pool:
+        pass

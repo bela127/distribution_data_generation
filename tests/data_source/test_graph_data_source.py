@@ -6,7 +6,7 @@ import tensorflow as tf
 class TestGraphDataSource(TestCase):
     def test_query(self):
         x = tf.constant([1, 2, 3, 4, 5, 6, 7])
-        default_graph = GraphDataSource()
+        default_graph = GraphDataSource(7)
         a, result = default_graph.query([x])
 
         tf.assert_equal(x, result[0])
@@ -20,7 +20,7 @@ class TestGraphDataSource(TestCase):
                 prev = i
             return out
 
-        add_graph = GraphDataSource(func)
+        add_graph = GraphDataSource(7, func)
 
         a, result = add_graph.query([x])
 

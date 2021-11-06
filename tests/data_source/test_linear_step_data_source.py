@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.linear_step_data_source import Li
 
 
 def test_query():
-    cds = LinearStepDataSource(0.9)
+    cds = LinearStepDataSource(4, 0.9)
 
     print(cds.query([tf.constant([-0.9, 0, -0.5, 0.7])]))

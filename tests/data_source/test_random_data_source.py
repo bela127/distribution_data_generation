@@ -7,7 +7,7 @@ class TestRandomDataSource(TestCase):
     def test_query(self):
         c = tf.constant([45, 45, 4543, 34, 43, 54, 54, 43, 25, 34, 6545, 34, 324, 23, 55])
 
-        source = RandomDataSource()
+        source = RandomDataSource(c.shape[0])
 
         a, b = source.query([c])
         print(b[0])
