@@ -18,7 +18,7 @@ class MultiGausianDataSource(DataSource):
         self.gpr.fit([x], [y])
         self.queries = []
         self.values = []
-        self.pool = ContinuousVectorPool(dim=in_dim, ranges=[[(min_x, max_x)] * in_dim])
+        self.pool = ContinuousVectorPool(dim=in_dim, ranges=[[(min_x, max_x)]] * in_dim)
 
     # @tf.function
     # there is an issue with using numpy methods in tf graphs. gpr uses numpy methods. looking into solutions for this
