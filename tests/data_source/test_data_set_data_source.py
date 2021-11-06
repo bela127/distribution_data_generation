@@ -15,7 +15,7 @@ class TestDataSetDataSource(TestCase):
         keys = array([a, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
         values = array([value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
 
-        source = DataSetDataSource(keys, values)
+        source = DataSetDataSource(9, keys, values)
 
         expected = value
         x, actual = source.query([b])

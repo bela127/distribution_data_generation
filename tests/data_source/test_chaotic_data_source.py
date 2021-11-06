@@ -6,7 +6,7 @@ import tensorflow as tf
 class TestChaoticDataSource(TestCase):
     def test_query(self):
         s = tf.constant([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0])
-        source = ChaoticDataSource()
+        source = ChaoticDataSource(in_dim=7)
         a, actual = source.query([s])
 
         print(actual[0])

@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.cross_data_source import CrossDat
 
 
 def test_query():
-    cds = CrossDataSource()
+    cds = CrossDataSource(in_dim=7)
 
     print(cds.query([tf.constant([0.5, 0.1, 0.1, 0.1, 0.1])]))

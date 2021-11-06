@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.cubic_data_source import CubicDat
 
 
 def test_query():
-    cds = CubicDataSource()
+    cds = CubicDataSource(4)
 
     print(cds.query([tf.constant([-0.9, 0, -0.5, 0.7])]))

@@ -1,10 +1,15 @@
+from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
+
 from distribution_data_generation.data_source import DataSource
 
 
 class LinearDataSource(DataSource):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, dim:int):
+        self.pool = ContinuousVectorPool(dim=dim, ranges=[[(0, 1)]] * dim)
 
     def _query(self, actual_queries):
         result = actual_queries
         return actual_queries, result
+
+    def possible_queries(self):
+        return self.pool

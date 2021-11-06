@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.hourglass_data_source import Hour
 
 
 def test_query():
-    cds = HourglassDataSource(2)
+    cds = HourglassDataSource(5,2)
 
     print(cds.query([tf.constant([0.5, 0.1, 0.1, 0.1, 0.1])]))

@@ -1,3 +1,5 @@
+from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
+
 from distribution_data_generation.data_source import DataSource
 import tensorflow as tf
 from numpy import array
@@ -11,10 +13,11 @@ class DataSetDataSource(DataSource):
     data_points = None
     data_values = None
 
-    def __init__(self, data_points: array, data_values: array):
-        super().__init__()
+    def __init__(self, in_dim:int, data_points: array, data_values: array):
         self.data_points = data_points
         self.data_values = data_values
+        #TODO: that's not right
+        self.pool = ContinuousVectorPool(dim=in_dim, ranges=[[(0, 1)]] * in_dim)
 
     def _query(self, actual_queries: tf.Tensor):
         place = 0
@@ -23,3 +26,6 @@ class DataSetDataSource(DataSource):
                 break
             place += 1
         return actual_queries, self.data_values[place]
+
+    def possible_queries(self):
+        return self.pool

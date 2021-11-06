@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.inv_z_data_source import InvZData
 
 
 def test_query():
-    cds = InvZDataSource()
+    cds = InvZDataSource(4)
 
     print(cds.query([tf.constant([0.9, 0.1, 0.5, 0.7])]))
