@@ -1,8 +1,10 @@
-from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
+from typing import List
+
+from active_learning_ts.pools.discrete_vector_pool import DiscreteVectorPool
+from active_learning_ts.pools.find_strategy import FindStrategy
 
 from distribution_data_generation.data_source import DataSource
 import tensorflow as tf
-from numpy import array
 
 
 class DataSetDataSource(DataSource):
@@ -13,15 +15,19 @@ class DataSetDataSource(DataSource):
     data_points = None
     data_values = None
 
-    def __init__(self, in_dim:int, data_points: array, data_values: array):
+    def __init__(self, in_dim: int, data_points: List[tf.Tensor], data_values: List[tf.Tensor],
+                 find_strategy: FindStrategy):
         self.data_points = data_points
         self.data_values = data_values
-        #TODO: that's not right
-        self.pool = ContinuousVectorPool(dim=in_dim, ranges=[[(0, 1)]] * in_dim)
+        find_strategy.post_init(data_points)
+        self.pool = DiscreteVectorPool(in_dim=in_dim, queries=data_points,
+                                       find_streategy=find_strategy)
+
 
     def _query(self, actual_queries: tf.Tensor):
+        # TODO: implement this with a kd-tree
         place = 0
-        for t in self.data_points.tolist():
+        for t in self.data_points:
             if tf.reduce_all(tf.math.equal(t, actual_queries)):
                 break
             place += 1
