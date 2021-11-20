@@ -1,6 +1,7 @@
 from typing import List
 
 from active_learning_ts.pools.discrete_vector_pool import DiscreteVectorPool
+from active_learning_ts.pools.retrievement_strategy import RetrievementStrategy
 
 from distribution_data_generation.data_source import DataSource
 import tensorflow as tf
@@ -14,12 +15,16 @@ class DataSetDataSource(DataSource):
     data_points = None
     data_values = None
 
-    def __init__(self, in_dim: int, data_points: List[tf.Tensor], data_values: List[tf.Tensor],
-                 retreivement_strategy):
+    def __init__(self, in_dim: int, data_points: List[tf.Tensor], data_values: List[tf.Tensor]):
         self.data_points = data_points
         self.data_values = data_values
-        self.pool = DiscreteVectorPool(in_dim=in_dim, queries=data_points,
-                                       find_streategy=retreivement_strategy)
+        self.in_dim = in_dim
+        self.pool = None
+
+    def post_init(self, retrievement_strategy: RetrievementStrategy):
+        super().post_init(retrievement_strategy)
+        self.pool = DiscreteVectorPool(in_dim=self.in_dim, queries=self.data_points,
+                                       find_streategy=self.retrievementStrategy)
 
 
     def _query(self, actual_queries: tf.Tensor):

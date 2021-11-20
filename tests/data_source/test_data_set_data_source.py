@@ -1,7 +1,8 @@
 from unittest import TestCase
 import tensorflow as tf
 from active_learning_ts.pools.discrete_vector_pool import DiscreteVectorPool
-from active_learning_ts.pools.find_strategies.nearest_neighbours_find_strategy import NearestNeighboursFindStrategy
+from active_learning_ts.pools.find_strategies.nearest_neighbours_retreivement_strategy import \
+    NearestNeighboursFindStrategy
 
 from distribution_data_generation.data_sources.data_set_data_source import DataSetDataSource
 from numpy import array
@@ -18,7 +19,9 @@ class TestDataSetDataSource(TestCase):
         keys = array([a, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
         values = array([value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
 
-        source = DataSetDataSource(9, keys, values, find_strategy=NearestNeighboursFindStrategy(1))
+        source = DataSetDataSource(9, keys, values)
+
+        source.post_init(retrievement_strategy=NearestNeighboursFindStrategy(1))
 
         expected = value
         x, actual = source.query([b])
