@@ -11,7 +11,7 @@ six = "*"
 
 [[package]]
 name = "active-learning-ts"
-version = "0.1.0.1"
+version = "0.1.1.0"
 description = ""
 category = "dev"
 optional = false
@@ -27,7 +27,7 @@ tensorflow = "^2.7.0"
 type = "git"
 url = "https://github.com/bela127/active_learning_ts.git"
 reference = "master"
-resolved_reference = "0c0608048e3966b41114a14c6e03daffea6638c5"
+resolved_reference = "30ea6750a3a30576fca73a29fc6837eae96dccb7"
 
 [[package]]
 name = "astunparse"
