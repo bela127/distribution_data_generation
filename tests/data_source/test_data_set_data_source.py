@@ -4,7 +4,6 @@ from active_learning_ts.pools.retrievement_strategies.nearest_neighbours_retreiv
     NearestNeighboursFindStrategy
 
 from distribution_data_generation.data_sources.data_set_data_source import DataSetDataSource
-from numpy import array
 
 
 class TestDataSetDataSource(TestCase):
@@ -15,14 +14,20 @@ class TestDataSetDataSource(TestCase):
 
         b = tf.constant([4.0, 4.0, 2.0, 2.0, 443.0, 3.0, 4.0, 344.0, 4.0])  # b is but a different object
 
-        keys = array([a, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
-        values = array([value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
+        keys = tf.convert_to_tensor(
+            [a, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
+        values = tf.convert_to_tensor(
+            [value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
 
         source = DataSetDataSource(9, keys, values)
 
-        source.post_init(retrievement_strategy=NearestNeighboursFindStrategy(1))
+        find = NearestNeighboursFindStrategy(1)
+        source.post_init(retrievement_strategy=find)
+        find.post_init(data_source=source)
 
         expected = value
-        x, actual = source.query([b])
+
+        query = source.possible_queries().get_elements(tf.convert_to_tensor([b]))
+        x, actual = source.query(query)
 
         tf.assert_equal(expected, actual[0])
