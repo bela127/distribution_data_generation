@@ -1,3 +1,5 @@
+from typing import List, Tuple
+from deprecated import deprecated
 from active_learning_ts.pools.discrete_vector_pool import DiscreteVectorPool
 from active_learning_ts.pools.retrievement_strategy import RetrievementStrategy
 
