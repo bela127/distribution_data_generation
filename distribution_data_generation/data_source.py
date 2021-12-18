@@ -8,14 +8,14 @@ class DataSource(activeLearningDataSource):
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         pass
 
-    def query(self, actual_queries: List[tf.Tensor]) -> Tuple[List[tf.Tensor], List[tf.Tensor]]:
+    def query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         queries = []
         results = []
         for x in actual_queries:
             q, r = self._query(x)
             queries.append(q)
             results.append(r)
-        return queries, results
+        return tf.convert_to_tensor(queries), tf.convert_to_tensor(results)
 
     def possible_queries(self) -> Pool:
         pass
