@@ -18,10 +18,11 @@ class MultiGausianDataSource(DataSource):
         self.gpr.fit([x], [y])
         self.queries = []
         self.values = []
+        self.point_shape = (in_dim,)
+        self.value_shape = (out_dim,)
         self.pool = ContinuousVectorPool(dim=in_dim, ranges=[[(min_x, max_x)]] * in_dim)
 
     # @tf.function
-    # there is an issue with using numpy methods in tf graphs. gpr uses numpy methods. looking into solutions for this
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         # TODO: in order to learn properly here, every point has to be trained every time. Overriding query directly \
         #  would avoid this
