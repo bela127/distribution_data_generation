@@ -5,6 +5,12 @@ from active_learning_ts.pool import Pool
 
 
 class DataSource(activeLearningDataSource):
+
+    def __init__(self) -> None:
+        # TODO implement these in all subclasses
+        self.point_shape = None
+        self.value_shape = None
+
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         pass
 

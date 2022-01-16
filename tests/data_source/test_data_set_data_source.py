@@ -19,7 +19,7 @@ class TestDataSetDataSource(TestCase):
         values = tf.convert_to_tensor(
             [value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
 
-        source = DataSetDataSource(9, keys, values)
+        source = DataSetDataSource(keys, values)
 
         find = NearestNeighboursFindStrategy(1)
         source.post_init(retrievement_strategy=find)

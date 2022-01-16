@@ -27,7 +27,7 @@ tensorflow = "^2.7.0"
 type = "git"
 url = "https://github.com/bela127/active_learning_ts.git"
 reference = "knowledge_discovery"
-resolved_reference = "6bf24f91fa74f635304ab0b0e12b83ed5aeff133"
+resolved_reference = "9964f7fd3a008a9cc5f05319869acad478d8187d"
 
 [[package]]
 name = "astunparse"
