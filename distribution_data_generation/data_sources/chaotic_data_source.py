@@ -1,13 +1,15 @@
+import tensorflow as tf
 from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
 
 from distribution_data_generation.data_source import DataSource
-import tensorflow as tf
 
 
 class ChaoticDataSource(DataSource):
     def __init__(self, in_dim=None):
         self.pool = ContinuousVectorPool(dim=in_dim,
                                          ranges=[[(-1, 1)]] * in_dim)
+        self.point_shape = self.pool.get_shape()
+        self.value_shape = self.point_shape
 
     @tf.function
     def _query(self, actual_query: tf.Tensor):

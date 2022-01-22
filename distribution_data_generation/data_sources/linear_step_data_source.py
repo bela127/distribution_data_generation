@@ -1,17 +1,19 @@
 import math
 from typing import Tuple
 
+import tensorflow as tf
 from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
 
 from distribution_data_generation.data_source import DataSource
-import tensorflow as tf
 
 
 class LinearStepDataSource(DataSource):
-    def __init__(self, dim:int, step_size: float = .5):
+    def __init__(self, dim: int, step_size: float = .5):
         self.step_size = math.fabs(step_size)
         self.half_step = step_size / 2
         self.pool = ContinuousVectorPool(dim=dim, ranges=[[(0, 1)]] * dim)
+        self.point_shape = (dim,)
+        self.value_shape = (dim,)
 
     # TODO: range check 0-1
     @tf.function
