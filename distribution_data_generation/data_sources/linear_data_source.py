@@ -4,8 +4,10 @@ from distribution_data_generation.data_source import DataSource
 
 
 class LinearDataSource(DataSource):
-    def __init__(self, dim:int):
+    def __init__(self, dim: int):
         self.pool = ContinuousVectorPool(dim=dim, ranges=[[(0, 1)]] * dim)
+        self.point_shape = (dim,)
+        self.value_shape = (dim,)
 
     def _query(self, actual_queries):
         result = actual_queries
