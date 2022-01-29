@@ -1,10 +1,8 @@
-from typing import List, Tuple
-from deprecated import deprecated
+import tensorflow as tf
 from active_learning_ts.pools.discrete_vector_pool import DiscreteVectorPool
 from active_learning_ts.pools.retrievement_strategy import RetrievementStrategy
 
 from distribution_data_generation.data_source import DataSource
-import tensorflow as tf
 
 
 class DataSetDataSource(DataSource):
