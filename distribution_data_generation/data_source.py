@@ -1,4 +1,5 @@
-from typing import List, Tuple
+from typing import Tuple
+
 import tensorflow as tf
 from active_learning_ts.data_retrievement.data_source import DataSource as activeLearningDataSource
 from active_learning_ts.pool import Pool
@@ -7,7 +8,6 @@ from active_learning_ts.pool import Pool
 class DataSource(activeLearningDataSource):
 
     def __init__(self) -> None:
-        # TODO implement these in all subclasses
         self.point_shape = None
         self.value_shape = None
 
