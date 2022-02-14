@@ -14,7 +14,7 @@ pytest = "^5.2"
 black = "^21.6b0"
 mypy = "^0.910"
 tensorflow = ">=2.6.0"
-active-learning_ts = {git="https://github.com/bela127/active_learning_ts.git", branch="knowledge_discovery"}
+active-learning_ts = {git="https://github.com/bela127/active_learning_ts.git"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

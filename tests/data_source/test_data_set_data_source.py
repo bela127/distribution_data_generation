@@ -1,7 +1,7 @@
 from unittest import TestCase
 import tensorflow as tf
 from active_learning_ts.pools.retrievement_strategies.nearest_neighbours_retreivement_strategy import \
-    NearestNeighboursFindStrategy
+    NearestNeighboursRetrievementStrategy
 
 from distribution_data_generation.data_sources.data_set_data_source import DataSetDataSource
 
@@ -19,15 +19,15 @@ class TestDataSetDataSource(TestCase):
         values = tf.convert_to_tensor(
             [value, tf.random.uniform(a.shape), tf.random.uniform(a.shape), tf.random.uniform(a.shape)])
 
-        source = DataSetDataSource(keys, values)
+        data_source = DataSetDataSource(keys, values)
 
-        find = NearestNeighboursFindStrategy(1)
-        source.post_init(retrievement_strategy=find)
-        find.post_init(data_source=source)
+        find = NearestNeighboursRetrievementStrategy(1)
+        data_source.post_init(retrievement_strategy=find)
+        find.post_init(pool=data_source.pool)
 
         expected = value
 
-        query = source.possible_queries().get_elements(tf.convert_to_tensor([b]))
-        x, actual = source.query(query)
+        query = data_source.possible_queries().get_elements(tf.convert_to_tensor([b]))
+        x, actual = data_source.query(query)
 
         tf.assert_equal(expected, actual[0])
