@@ -1,7 +1,7 @@
 import random
 from typing import Tuple
 
-from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
+from active_learning_ts.data_retrievement.pools.continuous_vector_pool import ContinuousVectorPool
 
 from distribution_data_generation.data_source import DataSource
 from sklearn.gaussian_process import GaussianProcessRegressor

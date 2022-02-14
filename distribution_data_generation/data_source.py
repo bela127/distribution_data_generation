@@ -2,7 +2,7 @@ from typing import Tuple
 
 import tensorflow as tf
 from active_learning_ts.data_retrievement.data_source import DataSource as activeLearningDataSource
-from active_learning_ts.pool import Pool
+from active_learning_ts.data_retrievement.pool import Pool
 
 
 class DataSource(activeLearningDataSource):

@@ -1,6 +1,6 @@
 import tensorflow as tf
-from active_learning_ts.pools.discrete_vector_pool import DiscreteVectorPool
-from active_learning_ts.pools.retrievement_strategy import RetrievementStrategy
+from active_learning_ts.data_retrievement.pools.discrete_vector_pool import DiscreteVectorPool
+from active_learning_ts.data_retrievement.retrievement_strategy import RetrievementStrategy
 
 from distribution_data_generation.data_source import DataSource
 
