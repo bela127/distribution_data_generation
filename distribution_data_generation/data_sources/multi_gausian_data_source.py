@@ -10,11 +10,11 @@ import tensorflow as tf
 
 
 class MultiGausianDataSource(DataSource):
-    def __init__(self, in_dim: int, out_dim: int, min_x: float = -10.0, max_x: float = 10.0):
+    def __init__(self, in_dim: int, out_dim: int = 1, min_x: float = -1.0, max_x: float = 1.0):
         x = tf.random.uniform((in_dim,), minval=min_x, maxval=max_x)
         y = tf.random.uniform((out_dim,), minval=-3.0,
                               maxval=3.0)  # with all default values, 3 is about the highest sample you can get
-        self.gpr = GaussianProcessRegressor(kernel=RationalQuadratic())
+        self.gpr = GaussianProcessRegressor(kernel=RationalQuadratic(length_scale=0.1))
         self.gpr.fit([x], [y])
         self.queries = []
         self.values = []
