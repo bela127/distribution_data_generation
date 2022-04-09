@@ -1,6 +1,6 @@
 import tensorflow as tf
-from active_learning_ts.pools.discrete_vector_pool import DiscreteVectorPool
-from active_learning_ts.pools.retrievement_strategy import RetrievementStrategy
+from active_learning_ts.data_retrievement.pools.discrete_vector_pool import DiscreteVectorPool
+from active_learning_ts.data_retrievement.retrievement_strategy import RetrievementStrategy
 
 from distribution_data_generation.data_source import DataSource
 
@@ -31,7 +31,7 @@ class DataSetDataSource(DataSource):
     def post_init(self, retrievement_strategy: RetrievementStrategy):
         super().post_init(retrievement_strategy)
         self.pool = DiscreteVectorPool(in_dim=self.point_shape[0], queries=self.data_points,
-                                       find_streategy=self.retrievementStrategy)
+                                       retrievement_strategy=self.retrievement_strategy)
 
     def query(self, actual_queries: tf.Tensor):
         return tf.gather(self.data_points, actual_queries), tf.gather(self.data_values, actual_queries)
