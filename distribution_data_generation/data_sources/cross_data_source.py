@@ -20,13 +20,13 @@ class CrossDataSource(DataSource):
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         entries = tf.unstack(actual_queries)
         out = []
-
+        e = None
         for entry in entries:
             for i in range(0, self.dependency_dimension):
-                if bool(random.getrandbits(1)):
-                    out.append((entry - 0.5) * (-1) + 0.5)
-                else:
-                    out.append(entry)
+                f1 = lambda: 1 - entry
+                f2 = lambda: entry
+                e = tf.case([(tf.random.uniform([]) < 0.5, f1)], f2)
+                out.append(e)
         return actual_queries, tf.stack(out)
 
     def possible_queries(self):

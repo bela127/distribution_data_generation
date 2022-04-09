@@ -22,15 +22,13 @@ class ZDataSource(DataSource):
         next_value = None
         for entry in entries:
             for i in range(0, self.dependency_dimension):
-                # there are four cases, so we need to pick two random bits
-                case = random.randint(0, 2)
+                f1 = lambda : .0
+                f2 = lambda : 1.
+                f3 = lambda : entry
 
-                if case == 0:
-                    next_value = .0
-                elif case == 1:
-                    next_value = 1.0
-                else:
-                    next_value = entry
+                rand = tf.random.uniform([])
+
+                next_value = tf.case([(rand < .333, f1), ( rand < .666, f2)], f3)
 
                 out.append(next_value)
 

@@ -5,6 +5,8 @@ import tensorflow as tf
 from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
 
 from distribution_data_generation.data_source import DataSource
+from distribution_data_generation.data_sources.cross_data_source import CrossDataSource
+from distribution_data_generation.data_sources.plus_data_source import PlusDataSource
 
 
 class StarDataSource(DataSource):
@@ -13,27 +15,24 @@ class StarDataSource(DataSource):
         self.pool = ContinuousVectorPool(dim=dim * dependency_dimension, ranges=[[(0, 1)]] * dim * dependency_dimension)
         self.point_shape = (dim,)
         self.value_shape = (dim * dependency_dimension,)
+        self.plus = PlusDataSource(1, dependency_dimension)
+        self.ex = CrossDataSource(1,dependency_dimension)
 
     @tf.function
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         entries = tf.unstack(actual_queries)
-        out = []
+        out = tf.convert_to_tensor([])
+        p = (1 + self.dependency_dimension) / (1 + 3 * self.dependency_dimension)
+
 
         next_value = None
         for entry in entries:
-            non_random_dim = random.randint(0, self.dependency_dimension)
-            for i in range(0, self.dependency_dimension):
-                # there are four cases, so we need to pick two random bits
+            f1 = lambda : self.ex._query([entry])
+            f2 = lambda : self.plus._query([entry])
 
-                if bool(random.getrandbits(1)):
-                    next_value = (entry - 0.5) * (-1) + 0.5
-                else:
-                    next_value = entry
+            a, next_value = tf.case([(tf.random.uniform([]) < p, f2)], f1)
 
-                if i == non_random_dim:
-                    next_value = 0.5
-
-                out.append(next_value)
+            out = tf.concat([out, next_value], 0)
 
         return actual_queries, tf.stack(out)
 

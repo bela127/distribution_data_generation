@@ -5,7 +5,9 @@ from distribution_data_generation.data_source import DataSource
 
 
 class ChaoticDataSource(DataSource):
-    def __init__(self, in_dim=None):
+    def __init__(self, in_dim=3):
+        if in_dim < 3:
+            raise ValueError("in_dim of Chaotic data source must be at least 3")
         self.pool = ContinuousVectorPool(dim=in_dim,
                                          ranges=[[(-1, 1)]] * in_dim)
         self.point_shape = self.pool.get_shape()

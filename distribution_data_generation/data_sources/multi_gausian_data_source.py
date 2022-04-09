@@ -14,7 +14,7 @@ class MultiGausianDataSource(DataSource):
         x = tf.random.uniform((in_dim,), minval=min_x, maxval=max_x)
         y = tf.random.uniform((out_dim,), minval=-3.0,
                               maxval=3.0)  # with all default values, 3 is about the highest sample you can get
-        self.gpr = GaussianProcessRegressor(kernel=RationalQuadratic())
+        self.gpr = GaussianProcessRegressor(kernel=RationalQuadratic(alpha=3))
         self.gpr.fit([x], [y])
         self.queries = []
         self.values = []

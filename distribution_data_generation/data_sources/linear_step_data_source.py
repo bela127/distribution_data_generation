@@ -15,7 +15,7 @@ class LinearStepDataSource(DataSource):
         self.point_shape = (dim,)
         self.value_shape = (dim,)
 
-    # TODO: range check 0-1
+
     @tf.function
     def _query(self, actual_queries: tf.Tensor) -> Tuple[tf.Tensor, tf.Tensor]:
         entries = tf.unstack(actual_queries)

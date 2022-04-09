@@ -23,18 +23,14 @@ class HourglassDataSource(DataSource):
 
         for entry in entries:
             for i in range(0, self.dependency_dimension):
-                # there are four cases, so we need to pick two random bits
                 next_value = None
-                if bool(random.getrandbits(1)):
-                    if bool(random.getrandbits(1)):
-                        next_value = (entry - 0.5) * (-1) + 0.5
-                    else:
-                        next_value = 0.0
-                else:
-                    if bool(random.getrandbits(1)):
-                        next_value = 1.0
-                    else:
-                        next_value = entry
+                f1 = lambda : (entry - 0.5) * (-1) + 0.5
+                f2 = lambda : .0
+                f3 = lambda : 1.
+                f4 = lambda : entry
+                rand = tf.random.uniform([])
+                next_value = tf.case([(rand < .25, f1), (rand < .5, f2), (rand < .75, f3)], f4)
+
                 out.append(next_value)
 
         return actual_queries, tf.stack(out)

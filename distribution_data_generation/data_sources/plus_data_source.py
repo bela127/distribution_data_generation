@@ -1,17 +1,16 @@
 import random
 from typing import Tuple
 
-import tensorflow as tf
 from active_learning_ts.pools.continuous_vector_pool import ContinuousVectorPool
+import tensorflow as tf
 
 from distribution_data_generation.data_source import DataSource
 
 
-class InvZDataSource(DataSource):
+class PlusDataSource(DataSource):
     def __init__(self, dim: int, dependency_dimension: int = 1):
         self.dependency_dimension = dependency_dimension
         self.pool = ContinuousVectorPool(dim=dim * dependency_dimension, ranges=[[(0, 1)]] * dim * dependency_dimension)
-
         self.point_shape = (dim,)
         self.value_shape = (dim * dependency_dimension,)
 
@@ -22,15 +21,13 @@ class InvZDataSource(DataSource):
 
         next_value = None
         for entry in entries:
+            random_dim = tf.random.uniform(shape=(), minval=0, maxval=self.dependency_dimension, dtype=tf.int32)
             for i in range(0, self.dependency_dimension):
 
-                f1 = lambda : .0
-                f2 = lambda : 1.
-                f3 = lambda : 1. - entry
-
-                rand = tf.random.uniform([])
-
-                next_value = tf.case([(rand < .333, f1), ( rand < .666, f2)], f3)
+                if entry == 0.5 and i == random_dim:
+                    next_value = tf.random.uniform([])
+                else:
+                    next_value = 0.5
 
                 out.append(next_value)
 
