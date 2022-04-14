@@ -18,7 +18,7 @@ class NonCoexistenceDataSource(DataSource):
         entries = tf.unstack(actual_queries)
         out = []
 
-        non_zero_index = random.randint(0, len(entries))
+        non_zero_index = tf.random.uniform(shape=(), minval=0, maxval=len(actual_queries), dtype=tf.int32)
         i = 0
         for entry in entries:
             if i == non_zero_index:

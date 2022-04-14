@@ -23,7 +23,7 @@ class LinearThenNoiseDataSource(DataSource):
         for entry in entries:
             out.append(entry)
             for i in range(1, self.dependency_dimension):
-                next_entry = random.uniform(0, 1)
+                next_entry = tf.random.uniform([])
                 out.append(next_entry)
 
         return actual_queries, tf.stack(out)

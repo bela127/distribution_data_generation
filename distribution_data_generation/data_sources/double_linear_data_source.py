@@ -23,11 +23,12 @@ class DoubleLinearDataSource(DataSource):
         e = None
 
         for entry in entries:
+            rand = tf.random.uniform([])
             for i in range(0, self.dependency_dimension):
-                f1 = lambda : entry * self.factor
-                f2 = lambda : entry
+                f1 = lambda: entry * self.factor
+                f2 = lambda: entry
 
-                e = tf.case([(tf.random.uniform([]) < 0.5, f1)], f2)
+                e = tf.case([(rand < 0.5, f1)], f2)
                 out.append(e)
 
         return actual_queries, tf.stack(out)
