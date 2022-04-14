@@ -1,10 +1,10 @@
 #Title
-
+Text
 
 ##Hypercube
 ![img.png](distribution_data_generation/images/cube3d.png)
-
 ![img.png](distribution_data_generation/images/cube2d.png)
+
 
 ## Cross
 ![img.png](distribution_data_generation/images/cross3d.png)
