@@ -28,9 +28,11 @@ dimension.
 
 ## Linear Periodic
 ![img.png](distribution_data_generation/images/LP2d.png)
+![img.png](distribution_data_generation/images/lp3d.png)
 
 ## Linear Step
 ![img.png](distribution_data_generation/images/LS2d.png)
+![img.png](distribution_data_generation/images/ls3d.png)
 
 ## Linear Then Dummy
 This represents the function f(x) = (x,0.5,0.5,...)
@@ -61,9 +63,12 @@ Calculates integer powers of vectors using vector multiplication
 ![img.png](distribution_data_generation/images/p2.png)
 ![img.png](distribution_data_generation/images/p3.png)
 ![img.png](distribution_data_generation/images/p4.png)
+![img.png](distribution_data_generation/images/pow3d.png)
+
 
 ## Sine
 ![img.png](distribution_data_generation/images/Sine.png)
+![img.png](distribution_data_generation/images/sine3d.png)
 
 ## Star
 ![img.png](distribution_data_generation/images/star2d.png)

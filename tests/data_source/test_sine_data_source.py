@@ -3,6 +3,6 @@ from distribution_data_generation.data_sources.sine_data_source import SineDataS
 
 
 def test_query():
-    cds = SineDataSource(4)
+    cds = SineDataSource(4,2)
 
     print(cds.query([tf.constant([-0.9, 0, -0.5, 0.7])]))
