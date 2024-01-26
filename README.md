@@ -1,10 +1,10 @@
 
-#Title
+# Title
 A collection of functions, for the testing of different knowledge discovery tasks, and AL models.
 The functions can be applied to vectors, but for the sake of the representation, they are applied here to a single 
 dimension.
 
-##Hypercube
+## Hypercube
 ![img.png](distribution_data_generation/images/cube3d.png)
 ![img.png](distribution_data_generation/images/cube2d.png)
 
